@@ -21,7 +21,7 @@ export class EmailReplyComponent implements OnChanges {
       from: this.email.to,
       to: this.email.from,
       subject: `RE: ${this.email.subject}`,
-      text: `\n\n\n----------- ${this.email.from} wrote:\n> ${text}`
+      text: `\n\n\n--------- ${this.email.from} wrote:\n> ${text}`
     }
   }
 
