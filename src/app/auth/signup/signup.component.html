@@ -1,0 +1,58 @@
+<h3>Create an Account</h3>
+<form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="signupForm">
+  <app-input
+    [control]="signupForm.get('username')"
+    label="Username"
+    inputType="text"
+  ></app-input>
+  <app-input
+    [control]="signupForm.get('password')"
+    label="Password"
+    inputType="password"
+  ></app-input>
+  <app-input
+    [control]="signupForm.get('passwordConfirmation')"
+    label="Password Confirmation"
+    inputType="password"
+  ></app-input>
+
+  <div
+    *ngIf="
+      signupForm.errors &&
+      signupForm.get('password').touched &&
+      signupForm.get('passwordConfirmation').touched
+    "
+    class="ui red basic label"
+  >
+    <p *ngIf="signupForm.errors.passwordsDontMatch">Passwords don't match.</p>
+    <p *ngIf="signupForm.errors.noConnection">
+      No internet connection detected, failed to sign up.
+    </p>
+    <p *ngIf="signupForm.errors.unknownError">Failed to sign up.</p>
+  </div>
+  <div class="button">
+    <button class="ui submit button primary">Submit</button>
+  </div>
+</form>
+
+<!--<div class="field">
+    <label>Username</label>
+    <input type="text" formControlName="username" />
+  </div>
+  {{ signupForm.get("username").errors | json }}
+  <div class="field">
+    <label>Password</label>
+    <input type="text" formControlName="password" />
+    <ng-container> </ng-container>
+  </div>
+  {{ signupForm.get("password").errors | json }}
+
+  <div class="field">
+    <label>Password Confirmation</label>
+    <input type="text" formControlName="passwordConfirmation" />
+  </div>
+  {{ signupForm.get("passwordConfirmation").errors | json }}
+
+  <button class="ui submit button primary">Submit</button>
+  {{ signupForm.errors | json }}
+</form>-->

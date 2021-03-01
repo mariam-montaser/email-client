@@ -1,0 +1,19 @@
+<h3>Sing In</h3>
+<form (ngSubmit)="onSubmit()" [formGroup]="signinForm" class="ui form">
+  <app-input
+    inputType="text"
+    label="Username"
+    [control]="signinForm.get('username')"
+  ></app-input>
+  <app-input
+    inputType="password"
+    label="Password"
+    [control]="signinForm.get('password')"
+  ></app-input>
+  <div class="ui red basic label" *ngIf="signinForm.errors">
+    <p *ngIf="signinForm.errors.credentials">Invalid username or password.</p>
+  </div>
+  <div>
+    <button class="ui submit button primary">Submit</button>
+  </div>
+</form>
